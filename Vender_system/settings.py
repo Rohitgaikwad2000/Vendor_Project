@@ -91,10 +91,10 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "Vender_System",
-        "USER": "Your Username",
-        "PASSWORD": "Your Password",
-        "HOST": "localhost",
-        "PORT": 3306,
+        "USER": "       ",      # Add your user here
+        "PASSWORD": "     ",    # Add your password here
+        "HOST": "    ",         # Add your hostname here
+        "PORT": "   ",          # Add your port here
     }
 }
 

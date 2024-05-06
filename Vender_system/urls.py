@@ -32,7 +32,7 @@ urlpatterns = [
     path("api/<int:pk>", include(newurlpatterns)),
     path("", include("rest_framework.urls", namespace="rest_framework")),
     path(
-        "api/Performance/<int:pk>",
+        "api/vendors/<int:pk>/Performance/",
         VendorPerformanceAPIView.as_view(),
         name="VendorPerformanceAPIView",
     ),

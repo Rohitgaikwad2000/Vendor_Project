@@ -70,8 +70,7 @@ class Purchase(models.Model):
 class Historical(models.Model):
     vendor = models.ForeignKey(Vender, on_delete=models.CASCADE)
     date = models.DateTimeField()
-    on_time_delivery_rate = models.FloatField(
-        validators=[Vender.positive_percentage])
+    on_time_delivery_rate = models.FloatField(validators=[Vender.positive_percentage])
 
     quality_rating_avg = models.FloatField(
         validators=[Vender.validate_quality_rating_avg]
@@ -79,8 +78,7 @@ class Historical(models.Model):
     average_response_time = models.FloatField(
         validators=[Vender.positive_time_in_minutes]
     )
-    fulfillment_rate = models.FloatField(
-        validators=[Vender.positive_percentage])
+    fulfillment_rate = models.FloatField(validators=[Vender.positive_percentage])
 
     def __str__(self):
         return self.date
