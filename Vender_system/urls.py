@@ -19,9 +19,11 @@ from django.contrib import admin
 from django.urls import path, include
 from Vender.urls import newurlpatterns
 from Vender.views import VendorPerformanceAPIView, PurchaseViewSet
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api-token-auth/", obtain_auth_token, name="api_token_auth"),
     path("api/", include(newurlpatterns)),
     path("api/<int:id>", include(newurlpatterns)),
     path("api/", include(newurlpatterns)),
