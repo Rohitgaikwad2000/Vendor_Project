@@ -14,17 +14,17 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='historical',
             name='average_response_time',
-            field=models.FloatField(validators=[Vender.models.Vender.validate_positive_time_in_minutes]),
+            field=models.FloatField(validators=[Vender.models.Vender.positive_time_in_minutes]),
         ),
         migrations.AlterField(
             model_name='historical',
             name='fulfillment_rate',
-            field=models.FloatField(validators=[Vender.models.Vender.validate_positive_percentage]),
+            field=models.FloatField(validators=[Vender.models.Vender.positive_percentage]),
         ),
         migrations.AlterField(
             model_name='historical',
             name='on_time_delivery_rate',
-            field=models.FloatField(validators=[Vender.models.Vender.validate_positive_percentage]),
+            field=models.FloatField(validators=[Vender.models.Vender.positive_percentage]),
         ),
         migrations.AlterField(
             model_name='historical',
@@ -39,17 +39,17 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='vender',
             name='average_response_time',
-            field=models.FloatField(validators=[Vender.models.Vender.validate_positive_time_in_minutes]),
+            field=models.FloatField(validators=[Vender.models.Vender.positive_time_in_minutes]),
         ),
         migrations.AlterField(
             model_name='vender',
             name='fulfillment_rate',
-            field=models.FloatField(validators=[Vender.models.Vender.validate_positive_percentage]),
+            field=models.FloatField(validators=[Vender.models.Vender.positive_percentage]),
         ),
         migrations.AlterField(
             model_name='vender',
             name='on_time_delivery_rate',
-            field=models.FloatField(validators=[Vender.models.Vender.validate_positive_percentage]),
+            field=models.FloatField(validators=[Vender.models.Vender.positive_percentage]),
         ),
         migrations.AlterField(
             model_name='vender',

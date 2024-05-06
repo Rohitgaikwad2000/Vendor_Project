@@ -14,26 +14,24 @@ class Vender(models.Model):
     average_response_time = models.FloatField()
     fulfillment_rate = models.FloatField()
 
-    def validate_positive_percentage(value):
+    def positive_percentage(value):
         if value < 0 or value > 100:
             raise ValidationError("Value must be less than or equal to 100.")
 
-    on_time_delivery_rate = models.FloatField(validators=[validate_positive_percentage])
+    on_time_delivery_rate = models.FloatField(validators=[positive_percentage])
 
     def validate_quality_rating_avg(value):
-        if value < 0 or value > 10:  # Adjust the upper limit to 10 for quality rating
+        if value < 0 or value > 10:
             raise ValidationError("Value must be less than or equal to 10.")
 
     quality_rating_avg = models.FloatField(validators=[validate_quality_rating_avg])
 
-    def validate_positive_time_in_minutes(value):
+    def positive_time_in_minutes(value):
         if value < 0:
             raise ValidationError("Value must be non-negative time in minutes.")
 
-    average_response_time = models.FloatField(
-        validators=[validate_positive_time_in_minutes]
-    )
-    fulfillment_rate = models.FloatField(validators=[validate_positive_percentage])
+    average_response_time = models.FloatField(validators=[positive_time_in_minutes])
+    fulfillment_rate = models.FloatField(validators=[positive_percentage])
 
     def __str__(self):
         return self.name
@@ -73,17 +71,16 @@ class Historical(models.Model):
     vendor = models.ForeignKey(Vender, on_delete=models.CASCADE)
     date = models.DateTimeField()
     on_time_delivery_rate = models.FloatField(
-        validators=[Vender.validate_positive_percentage]
-    )
+        validators=[Vender.positive_percentage])
+
     quality_rating_avg = models.FloatField(
         validators=[Vender.validate_quality_rating_avg]
     )
     average_response_time = models.FloatField(
-        validators=[Vender.validate_positive_time_in_minutes]
+        validators=[Vender.positive_time_in_minutes]
     )
     fulfillment_rate = models.FloatField(
-        validators=[Vender.validate_positive_percentage]
-    )
+        validators=[Vender.positive_percentage])
 
     def __str__(self):
         return self.date
